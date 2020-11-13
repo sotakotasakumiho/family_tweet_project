@@ -1,7 +1,20 @@
 Rails.application.routes.draw do
-  get "posts/index" => "posts#index"
+  get "login" => "users#login_form"
+  post "login" => "users#login"
+  post "logout" => "users#logout"
 
-  get "/" => "home#top"
-  get "about" => "home#about"
+  resources :users
+  
+
+  resources :posts do
+    resources :likes, only: [:index, :create, :destroy]
+  end
+
+  
+  
+
+  root 'home#index'
+  resources :home, only: [:index, :show]
+  
 end
 
