@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title MotivationUp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .header-logo
+        -if @current_user
+          = link_to("FamilyTweet","/posts")
+        - else
+          = link_to("FamilyTweet","/")
+      %ul.header-menus
+        - if @current_user
+          %li 
+            = link_to(@current_user.name, "/users/#{@current_user.id}")
+          %li
+            = link_to("おはなしをみる", "/posts")
+          %li
+            = link_to("おはなしをする", "/posts/new")
+          %li
+            = link_to("かぞくのなまえ", "/users")
+          %li
+            = link_to("お気に入り", "/posts/#{:post_id}/likes")
+          %li
+            = link_to("ログアウト", "/logout", {method: :post})
+        - else
+          %li
+            = link_to("FamilyTweetとは", "/home/show.id")
+          %li 
+            = link_to("なまえのとうろく", "/users/new")
+          %li
+            = link_to("ログイン","/login")
+
+    - if flash[:notice]
+      .flash
+        = flash[:notice]    
+    = yield
