@@ -2,7 +2,7 @@
 lock "3.14.1"
 
 set :application, "family_tweet_project"
-set :repo_url, "git@github.com/sotakotasakumiho/family_tweet_project.git"
+set :repo_url, "git@github.com:sotakotasakumiho/family_tweet_project.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
