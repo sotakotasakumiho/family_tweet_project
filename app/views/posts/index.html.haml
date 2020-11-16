@@ -1,1 +1,15 @@
-tanomu
+.main.posts-index
+  .container
+    .scroll-js
+      .j-scroll
+        - @posts.each do |post|
+          .posts-index-item
+            .post-left
+              = image_tag post.user.image.url
+            .post-right
+              .post-user-name
+                = link_to(post.user.nickname, "/users/#{post.user.id}")
+              = link_to(post.content, "/posts/#{post.id}")
+        .skill-list
+          = link_to_prev_page @posts, '前のページ', class: "prev"
+          = link_to_next_page @posts, '次のページ', class: "next"

@@ -1,0 +1,11 @@
+.main.posts-new
+  .container
+    %h1.form-heading 編集する
+    = form_with(model: @post, local: true) do |form|
+      .form
+        .form-body
+          - @post.errors.full_messages.each do |message| 
+            .form-error
+              =message
+          = form.text_area :content
+          = form.submit "保存"
