@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock "3.14.1"
 
 set :application, "family_tweet_project"
 set :repo_url, "git@github.com/sotakotasakumiho/family_tweet_project.git"
