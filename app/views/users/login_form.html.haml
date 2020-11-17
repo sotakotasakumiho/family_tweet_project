@@ -1,0 +1,15 @@
+.main.users-new
+  .container
+    .form-heading ログイン
+    .form.users-form
+      .form-body
+        - if @error_message
+          .form_error
+            = @error_message
+            
+        = form_with url: login_path do |f|
+          %p ニックネーム
+          = f.text_field :nickname, placeholder: "ニックネーム", class: :form_text
+          %p パスワード
+          = f.text_field :password, placeholder: "パスワード", class: :form_text
+          = f.submit "ログイン", class: :form_btn

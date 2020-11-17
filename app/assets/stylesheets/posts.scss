@@ -1,3 +1,4 @@
+/* posts/index ================================ */
 .posts-index-item {
   padding: 20px 30px;
   background-color: white;
@@ -31,6 +32,10 @@
   width: 90%;
   padding-left: 25px;
   text-align: left;
+}
+
+.skill-list{
+  display: none;
 }
 
 /* posts/show ================================ */
@@ -68,6 +73,10 @@
 .post-time {
   color: #8899a6;
   margin-bottom: 10px;
+}
+
+.like-heart{
+  color: #ff2581;
 }
 
 .post-menus {
