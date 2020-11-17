@@ -1,0 +1,9 @@
+.main.users-index
+  .container
+    %h1.users-heading きみのかぞく
+    - @users.each do |user|
+      .users-index-item
+        .user-left
+          = image_tag user.image.url
+        .user-right
+          = link_to(user.nickname, "/users/#{user.id}")

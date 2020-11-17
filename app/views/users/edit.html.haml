@@ -1,0 +1,14 @@
+.main.user-edit
+  .container
+    .form-heading 編集
+    .form.users-form
+      .form-body
+        - @user.errors.full_messages.each do |message|
+          .form-error
+            =message
+
+        = form_with(model: @user, local: true, multipart: true) do |f|
+          = f.text_field :name, placeholder: :"なまえ", class: :form_text
+          = f.text_field :nickname, placeholder: :"ニックネーム", class: :form_text
+          = f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: :form_text
+          = f.submit "変更", class: :form_btn

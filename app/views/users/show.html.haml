@@ -1,0 +1,18 @@
+.main.user-show
+  .container
+    .user
+      = image_tag @user.image.url, class: 'img' if @user.image.present?
+      %h2 
+        = @user.nickname
+      %P
+        = @user.name
+      - if @user.id == @current_user.id
+        = link_to("編集","/users/#{@user.id}/edit")
+        = link_to("削除", "/users/#{@user.id}", method: :delete)
+    - @user.posts.each do |post|
+      .posts-index-item
+        .post-left
+          = image_tag @user.image.url
+        .post-right
+          = link_to(post.user.nickname, "/users/#{post.user.id}")
+        =link_to(post.content, "/posts/#{post.id}")
