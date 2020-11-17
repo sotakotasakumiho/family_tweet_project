@@ -5,7 +5,8 @@
         - @posts.each do |post|
           .posts-index-item
             .post-left
-              = image_tag post.user.image.url
+              - if post.user.image.url.present?
+                = image_tag post.user.image.url
             .post-right
               .post-user-name
                 = link_to(post.user.nickname, "/users/#{post.user.id}")

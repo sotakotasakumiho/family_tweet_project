@@ -1,0 +1,13 @@
+-if Like.find_by(user_id: @current_user.id, post_id: @post.id)
+  = link_to(post_like_path(@post, post.id), method: :delete, remote: true) do
+    %li.optionalBtn.already
+      .like-heart
+        = icon('fa', 'heart')
+        = Like.where(post_id: @post.id).count
+-else 
+  = link_to(post_likes_path(@post), method: :post, remote: true) do
+    %li.optionalBtn.none
+      .like-heart
+        = icon('fa', 'heart')
+        = Like.where(post_id: @post.id).count
+  
