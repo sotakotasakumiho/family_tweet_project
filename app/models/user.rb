@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :password, {presence: true}
   mount_uploader :image, ImageUploader
 
-  #has_many :likes, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def posts
     return Post.where(user_id: self.id)

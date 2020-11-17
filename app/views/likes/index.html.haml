@@ -1,0 +1,14 @@
+.main.posts-index
+  .container
+    - if @likes.present?
+      %ul
+        - @likes.each do |like|
+          %li
+            = link_to post_path(like.post.id) do
+              .posts-index-item
+                .post-left
+                  = image_tag like.post.user.image.url
+                .post-right
+                  .post-user-name
+                    = like.post.user.nickname
+                  = like.post.content
