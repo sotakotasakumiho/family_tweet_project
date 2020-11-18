@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :users 
-      get "login" => "users#login_form"
-      post "login" => "users#login"
-      post "logout" => "users#logout"
+  
+  get "login" => "users#login_form"
+  post "login" => "users#login"
+  post "logout" => "users#logout"
 
+  resources :users
+  
 
   resources :posts do
     resources :likes, only: [:index, :create, :destroy]
